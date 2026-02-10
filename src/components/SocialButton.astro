@@ -1,0 +1,49 @@
+---
+interface Props {
+  href: string;
+  icon: string;
+  backgroundColor: string;
+  title: string;
+}
+
+const { href, icon, backgroundColor, title } = Astro.props;
+---
+
+<a href={href} class="social-button" style={`background-color: ${backgroundColor}`} title={title}>
+  <Fragment set:html={icon} />
+</a>
+
+<style>
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 0.125rem solid #000;
+  transition: transform 0.375s;
+}
+
+.social-button:hover {
+  transform: scale(1.1125);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-button {
+    transition: filter 0.375s, box-shadow 0.375s;
+  }
+
+  .social-button:hover {
+    transform: none;
+    filter: brightness(1.25);
+    box-shadow: 0 0.2em 0.6em #00000069;
+  }
+}
+
+.social-button :global(svg) {
+  width: 60%;
+  height: 60%;
+  fill: #000;
+}
+</style>

@@ -1,0 +1,36 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	caption: string;
+}
+
+const { src, alt, caption } = Astro.props;
+const hasCaption = String(caption).length > 0;
+---
+
+<figure>
+	<Image src={src} alt={alt} width={600} densities={[1, 2]} />
+	<figcaption v-if={hasCaption}>{caption}</figcaption>
+</figure>
+
+<style>
+	figure {
+		margin: 2rem auto;
+	}
+
+	figure img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+		border-radius: .5rem;
+	}
+
+	figure figcaption {
+	  margin-top: .5rem;
+	}
+</style>

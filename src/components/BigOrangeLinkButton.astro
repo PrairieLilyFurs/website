@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class="big-orange-button">
+  <slot />
+</a>
+
+<style>
+.big-orange-button {
+  display: block;
+  max-width: 100%;
+  font-weight: 500;
+  background-color: #FF9900;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: #000;
+}
+</style>
