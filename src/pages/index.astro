@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import BigOrangeLinkButton from '../components/BigOrangeLinkButton.astro';
 import GalleryPhoto from '../components/GalleryPhoto.astro';
 import SocialButton from '../components/SocialButton.astro';
+import EMailLink from '../components/EMailLink.astro';
 import headerImage from '../images/plfGPtrans.png';
 import facebookIcon from '../images/icons/facebook.svg?raw';
 import peopleGroupIcon from '../images/icons/people-group.svg?raw';
@@ -25,7 +26,9 @@ import saskExImage from '../images/sask-ex-parade-2024.jpg';
 			<SocialButton href="https://www.facebook.com/groups/PrairieLilyFurs/" icon={peopleGroupIcon} backgroundColor="#1C92FF" title="Facebook Groups" />
 			<SocialButton href="https://discord.gg/uqpSERqTfg" icon={discordIcon} backgroundColor="#9E70FF" title="Discord" />
 			<SocialButton href="https://t.me/PrairieLilyFur" icon={telegramIcon} backgroundColor="#00BFD9" title="Telegram" />
-			<SocialButton href="mailto:prairielilyfurs@gmail.com" icon={envelopeIcon} backgroundColor="#FC92F8" title="Email" />
+			<EMailLink href="mailto:prairielilyfurs@gmail.com" class="social-button" style="background-color: #FC92F8" title="Email">
+				<Fragment set:html={envelopeIcon} />
+			</EMailLink>
 		</nav>
 	</header>
 	<main>
@@ -75,5 +78,38 @@ import saskExImage from '../images/sask-ex-parade-2024.jpg';
   justify-content: center;
   gap: 1.625rem;
   font-size: 2.125em;
+}
+
+.social-links :global(.social-button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 0.125rem solid #000;
+  transition: transform 0.375s;
+}
+
+.social-links :global(.social-button:hover) {
+  transform: scale(1.1125);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-links :global(.social-button) {
+    transition: filter 0.375s, box-shadow 0.375s;
+  }
+
+  .social-links :global(.social-button:hover) {
+    transform: none;
+    filter: brightness(1.25);
+    box-shadow: 0 0.2em 0.6em #00000069;
+  }
+}
+
+.social-links :global(.social-button svg) {
+  width: 60%;
+  height: 60%;
+  fill: #000;
 }
 </style>

@@ -1,0 +1,31 @@
+---
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  href: string;
+}
+
+const { href, ...attrs } = Astro.props;
+const encoded = Buffer.from(href).toString("base64");
+---
+
+<a data-m={encoded} href="#" {...attrs}><slot /></a>
+
+<script>
+  function reveal(a: HTMLAnchorElement) {
+    const encoded = a.dataset.m;
+    if (!encoded) return;
+    a.href = atob(encoded);
+    delete a.dataset.m;
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>("a[data-m]").forEach((a) => {
+    a.addEventListener("pointerenter", () => reveal(a), { once: true });
+    a.addEventListener("focusin", () => reveal(a), { once: true });
+    a.addEventListener("click", (e) => {
+      if (a.dataset.m) {
+        e.preventDefault();
+        reveal(a);
+        a.click();
+      }
+    });
+  });
+</script>
