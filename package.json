@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
@@ -16,6 +17,7 @@
     "vue": "^3.5.27"
   },
   "devDependencies": {
+    "vitest": "^4.0.18",
     "wrangler": "^4.63.0"
   }
 }
