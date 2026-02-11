@@ -1,6 +1,6 @@
 ---
 title: OutSaskatoon February 2026 Furmeet
-date: 2026-06-20T18:00:00-06:00
+date: 2026-02-20T18:00:00-06:00
 location: 201-245 3rd Avenue South
 ---
 
