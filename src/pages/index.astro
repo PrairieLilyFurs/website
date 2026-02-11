@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import BigOrangeLinkButton from '../components/BigOrangeLinkButton.astro';
+import EventList from '../components/EventList.astro';
 import GalleryPhoto from '../components/GalleryPhoto.astro';
 import SocialButton from '../components/SocialButton.astro';
 import EMailLink from '../components/EMailLink.astro';
@@ -38,9 +39,7 @@ import saskExImage from '../images/sask-ex-parade-2024.jpg';
 		</section>
 		<section>
 			<h2>Events</h2>
-			<p>September 1st 5pm - Hangout at Blop n Aqua's! A friend from Manitoba will be coming down and has offered to treat us to some pizza and good times. Address will be provided to those in the Telegram or Discord only as this is a private residence.</p>
-			<p>PLF Howl - October 26th - The PLF Halloween meet will be hosted by Blop n Aqua in Saskatoon. We may go to a local park, or just stay in for the night! More details to come! Check the Telegram and Discord for the most up-to-date info!</p>
-			<p>Prairie Lily Furs events are most accurately posted to our Discord, Telegram, and Facebook groups. At the current time, maintaining the bulk of our socials is handled by one person so updates here may be delayed or outdated when they do get posted here.</p>
+			<EventList />
 			<section>
 				<h3>What types of events do we host?</h3>
 				<p>Common events from Prairie Lily Furs are fursuiting events, bowling events, Games nights, Maker's Meets, and meets at local conventions. We also make a point of walking in the Saskatoon Pride Parade every year and a small handful of us walk in the Saskatoon Ex Mascot parade. With all Prairie Lily Furs events, Fursuits are always optional.</p>

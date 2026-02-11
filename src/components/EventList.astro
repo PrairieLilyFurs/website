@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import { processEvents } from '../lib/events';
+
+const events = processEvents(await getCollection('events'));
+
+---
+
+{events.map(event => (
+  <section>
+    <header>
+      <h3>{event.title}</h3>
+      <time datetime={event.date.toISOString()}>{event.date.toLocaleString(
+        'en-CA',
+        { dateStyle: 'long', timeStyle: 'short' }
+      )}</time>
+    </header>
+    <p>{event.description}</p>
+  </section>
+))}
