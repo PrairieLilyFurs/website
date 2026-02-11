@@ -1,114 +1,197 @@
 ---
-import { Image } from 'astro:assets';
-import Layout from '../layouts/Layout.astro';
-import BigOrangeLinkButton from '../components/BigOrangeLinkButton.astro';
-import EventList from '../components/EventList.astro';
-import GalleryPhoto from '../components/GalleryPhoto.astro';
-import SocialButton from '../components/SocialButton.astro';
-import EMailLink from '../components/EMailLink.astro';
-import headerImage from '../images/plfGPtrans.png';
-import facebookIcon from '../images/icons/facebook.svg?raw';
-import peopleGroupIcon from '../images/icons/people-group.svg?raw';
-import discordIcon from '../images/icons/discord.svg?raw';
-import telegramIcon from '../images/icons/telegram.svg?raw';
-import envelopeIcon from '../images/icons/envelope.svg?raw';
-import unityFlagImage from '../images/unity-flag.jpg';
-import popconImage from '../images/popcon-yxe.jpg';
-import furEhImage from '../images/fur-eh-2024.jpg';
-import saskExImage from '../images/sask-ex-parade-2024.jpg';
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import BigOrangeLinkButton from "../components/BigOrangeLinkButton.astro";
+import EventList from "../components/EventList.astro";
+import GalleryPhoto from "../components/GalleryPhoto.astro";
+import SocialButton from "../components/SocialButton.astro";
+import EMailLink from "../components/EMailLink.astro";
+import headerImage from "../images/plfGPtrans.png";
+import facebookIcon from "../images/icons/facebook.svg?raw";
+import peopleGroupIcon from "../images/icons/people-group.svg?raw";
+import discordIcon from "../images/icons/discord.svg?raw";
+import telegramIcon from "../images/icons/telegram.svg?raw";
+import envelopeIcon from "../images/icons/envelope.svg?raw";
+import unityFlagImage from "../images/unity-flag.jpg";
+import popconImage from "../images/popcon-yxe.jpg";
+import furEhImage from "../images/fur-eh-2024.jpg";
+import saskExImage from "../images/sask-ex-parade-2024.jpg";
 ---
 
 <Layout title="Prairie Lily Furs">
-	<header>
-    <Image class="logo-frame" src={headerImage} alt="Prairie Lily Furs" width={150} height={150} densities={[1, 2]} />
-		<h1>Hi, we're Prairie Lily Furs</h1>
-		<nav class="social-links" aria-label="Social media links">
-			<SocialButton href="https://www.facebook.com/PLFurs/" icon={facebookIcon} backgroundColor="#2BA6FF" title="Facebook" />
-			<SocialButton href="https://www.facebook.com/groups/PrairieLilyFurs/" icon={peopleGroupIcon} backgroundColor="#1C92FF" title="Facebook Groups" />
-			<SocialButton href="https://discord.gg/uqpSERqTfg" icon={discordIcon} backgroundColor="#9E70FF" title="Discord" />
-			<SocialButton href="https://t.me/PrairieLilyFur" icon={telegramIcon} backgroundColor="#00BFD9" title="Telegram" />
-			<EMailLink href="mailto:prairielilyfurs@gmail.com" class="social-button" style="background-color: #FC92F8" title="Email">
-				<Fragment set:html={envelopeIcon} />
-			</EMailLink>
-		</nav>
-	</header>
-	<main>
-		<section>
-  		<p>We are a group dedicated to creating a welcoming space for the love of all things Fluffy. Prairie Lily Furs are fans of Anthropomorphic animal characters and the many associated forms of art. Check out our online groups to interact with other Furries in the province.</p>
-  		<p>Currently Prairie Lily Furs runs a Facebook page and group, a Discord server, and a Telegram channel. Our hope is that these make it more accessible for more new and returning furries to take part in our community.</p>
-		</section>
-		<section>
-			<h2>Events</h2>
-			<EventList />
-			<section>
-				<h3>What types of events do we host?</h3>
-				<p>Common events from Prairie Lily Furs are fursuiting events, bowling events, Games nights, Maker's Meets, and meets at local conventions. We also make a point of walking in the Saskatoon Pride Parade every year and a small handful of us walk in the Saskatoon Ex Mascot parade. With all Prairie Lily Furs events, Fursuits are always optional.</p>
-			</section>
-			<section>
-			  <p>Pictured below is the Unity Flag that Prairie Lily Furs carry for the Pride Parade each year. We get plenty of questions surrounding it due to potential misconceptions about its meaning so as a quick FAQ, the Unity Flag was created by a furry company called Fursona Pins and, in their words, "The Unity Flag is a POC and transgender inclusive flag that highlights the unique concentration and welcoming of LGBTQIA+ folks in the furry fandom. The furry fandom is heavily LGBTQIA+ in nature and this flag celebrates this fact."</p>
-				<GalleryPhoto src={unityFlagImage} alt="The Furry Unity Flag"} />
-			</section>
-		</section>
-		<section>
-			<h2>Pictures from recent events</h2>
-			<GalleryPhoto src={popconImage} alt="Fursuiters at Pop Con YXE" caption="A few of the fursuiters that attended Pop Con YXE (formerly Sask Expo Saskatoon)" />
-			<GalleryPhoto src={furEhImage} alt="PLF members at Fur-Eh! 2024" caption="PLF at Fur-Eh! 2024" />
-			<GalleryPhoto src={saskExImage} alt="Three fursuiters posed in front of a Saskatoon Fire truck" caption="Saskatoon Ex Parade 2024" />
-		</section>
-		<section>
-			<h2>Resources for parents</h2>
-			<p>A fantastic resource for parents, and anyone else interested in learning about the furry fandom is the FurScience website. As their website says, "Furscience is the public face of the International Anthropomorphic Research Project (IARP), studying furries and their fandom and disseminating our evidence-based research to furries, the general public, scholars, and the media to increase understanding and decrease stigma."</p>
-			<BigOrangeLinkButton href="https://furscience.com/resources/">
-			  Resources for parents from FurScience
-			</BigOrangeLinkButton>
-		</section>
-	</main>
+  <header>
+    <Image
+      class="logo-frame"
+      src={headerImage}
+      alt="Prairie Lily Furs"
+      width={150}
+      height={150}
+      densities={[1, 2]}
+    />
+    <h1>Hi, we're Prairie Lily Furs</h1>
+    <nav class="social-links" aria-label="Social media links">
+      <SocialButton
+        href="https://www.facebook.com/PLFurs/"
+        icon={facebookIcon}
+        backgroundColor="#2BA6FF"
+        title="Facebook"
+      />
+      <SocialButton
+        href="https://www.facebook.com/groups/PrairieLilyFurs/"
+        icon={peopleGroupIcon}
+        backgroundColor="#1C92FF"
+        title="Facebook Groups"
+      />
+      <SocialButton
+        href="https://discord.gg/uqpSERqTfg"
+        icon={discordIcon}
+        backgroundColor="#9E70FF"
+        title="Discord"
+      />
+      <SocialButton
+        href="https://t.me/PrairieLilyFur"
+        icon={telegramIcon}
+        backgroundColor="#00BFD9"
+        title="Telegram"
+      />
+      <EMailLink
+        href="mailto:prairielilyfurs@gmail.com"
+        class="social-button"
+        style="background-color: #FC92F8"
+        title="Email"
+      >
+        <Fragment set:html={envelopeIcon} />
+      </EMailLink>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <p>
+        We are a group dedicated to creating a welcoming space for the love of
+        all things Fluffy. Prairie Lily Furs are fans of Anthropomorphic animal
+        characters and the many associated forms of art. Check out our online
+        groups to interact with other Furries in the province.
+      </p>
+      <p>
+        Currently Prairie Lily Furs runs a Facebook page and group, a Discord
+        server, and a Telegram channel. Our hope is that these make it more
+        accessible for more new and returning furries to take part in our
+        community.
+      </p>
+    </section>
+    <section>
+      <h2>Events</h2>
+      <section>
+        <h3>What types of events do we host?</h3>
+        <p>
+          Common events from Prairie Lily Furs are fursuiting events, bowling
+          events, Games nights, Maker's Meets, and meets at local conventions.
+          We also make a point of walking in the Saskatoon Pride Parade every
+          year and a small handful of us walk in the Saskatoon Ex Mascot parade.
+          With all Prairie Lily Furs events, Fursuits are always optional.
+        </p>
+        <p>Join our socials to learn more and discuss the events.</p>
+      </section>
+      <section>
+        <h3>Current, future, and past events</h3>
+        <EventList />
+      </section>
+      <section>
+        <p>
+          Pictured below is the Unity Flag that Prairie Lily Furs carry for the
+          Pride Parade each year. We get plenty of questions surrounding it due
+          to potential misconceptions about its meaning so as a quick FAQ, the
+          Unity Flag was created by a furry company called Fursona Pins and, in
+          their words, "The Unity Flag is a POC and transgender inclusive flag
+          that highlights the unique concentration and welcoming of LGBTQIA+
+          folks in the furry fandom. The furry fandom is heavily LGBTQIA+ in
+          nature and this flag celebrates this fact."
+        </p>
+        <GalleryPhoto src={unityFlagImage} alt="The Furry Unity Flag" } />
+      </section>
+    </section>
+    <section>
+      <h2>Pictures from recent events</h2>
+      <GalleryPhoto
+        src={popconImage}
+        alt="Fursuiters at Pop Con YXE"
+        caption="A few of the fursuiters that attended Pop Con YXE (formerly Sask Expo Saskatoon)"
+      />
+      <GalleryPhoto
+        src={furEhImage}
+        alt="PLF members at Fur-Eh! 2024"
+        caption="PLF at Fur-Eh! 2024"
+      />
+      <GalleryPhoto
+        src={saskExImage}
+        alt="Three fursuiters posed in front of a Saskatoon Fire truck"
+        caption="Saskatoon Ex Parade 2024"
+      />
+    </section>
+    <section>
+      <h2>Resources for parents</h2>
+      <p>
+        A fantastic resource for parents, and anyone else interested in learning
+        about the furry fandom is the FurScience website. As their website says,
+        "Furscience is the public face of the International Anthropomorphic
+        Research Project (IARP), studying furries and their fandom and
+        disseminating our evidence-based research to furries, the general
+        public, scholars, and the media to increase understanding and decrease
+        stigma."
+      </p>
+      <BigOrangeLinkButton href="https://furscience.com/resources/">
+        Resources for parents from FurScience
+      </BigOrangeLinkButton>
+    </section>
+  </main>
 </Layout>
 
 <style>
-.logo-frame {
-  border: .25rem solid #000;
-  border-radius: 100%;
-}
+  .logo-frame {
+    border: 0.25rem solid #000;
+    border-radius: 100%;
+  }
 
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.625rem;
-  font-size: 2.125em;
-}
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.625rem;
+    font-size: 2.125em;
+  }
 
-.social-links :global(.social-button) {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  border: 0.125rem solid #000;
-  transition: transform 0.375s;
-}
-
-.social-links :global(.social-button:hover) {
-  transform: scale(1.1125);
-}
-
-@media (prefers-reduced-motion: reduce) {
   .social-links :global(.social-button) {
-    transition: filter 0.375s, box-shadow 0.375s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 0.125rem solid #000;
+    transition: transform 0.375s;
   }
 
   .social-links :global(.social-button:hover) {
-    transform: none;
-    filter: brightness(1.25);
-    box-shadow: 0 0.2em 0.6em #00000069;
+    transform: scale(1.1125);
   }
-}
 
-.social-links :global(.social-button svg) {
-  width: 60%;
-  height: 60%;
-  fill: #000;
-}
+  @media (prefers-reduced-motion: reduce) {
+    .social-links :global(.social-button) {
+      transition:
+        filter 0.375s,
+        box-shadow 0.375s;
+    }
+
+    .social-links :global(.social-button:hover) {
+      transform: none;
+      filter: brightness(1.25);
+      box-shadow: 0 0.2em 0.6em #00000069;
+    }
+  }
+
+  .social-links :global(.social-button svg) {
+    width: 60%;
+    height: 60%;
+    fill: #000;
+  }
 </style>
