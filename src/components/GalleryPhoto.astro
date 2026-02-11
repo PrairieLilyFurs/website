@@ -14,7 +14,7 @@ const hasCaption = String(caption).length > 0;
 
 <figure>
 	<Image src={src} alt={alt} width={600} densities={[1, 2]} />
-	<figcaption v-if={hasCaption}>{caption}</figcaption>
+	{hasCaption && <figcaption>{caption}</figcaption>}
 </figure>
 
 <style>
