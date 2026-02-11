@@ -40,7 +40,9 @@ export function compareEvents(
 }
 
 export function processEvents(events: RawEvent[], today?: Date): ProcessedEvent[] {
-  const t = today ?? new Date();
+  const t = today ?? new Date(
+    new Date().toLocaleString("en-US", { timeZone: "America/Regina" }),
+  );
   t.setHours(0, 0, 0, 0);
 
   return events

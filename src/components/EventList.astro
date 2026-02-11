@@ -14,6 +14,7 @@ const events = processEvents(await getCollection("events"));
           {event.date.toLocaleString("en-CA", {
             dateStyle: "long",
             timeStyle: "short",
+            timeZone: "America/Regina",
           })}
         </time>
       </header>
