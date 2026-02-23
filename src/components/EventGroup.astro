@@ -1,0 +1,18 @@
+---
+import EventItem from "./EventItem.astro";
+import type { IEvent } from "./EventList.astro";
+
+const { title, events } = Astro.props;
+---
+
+{events.length > 0 && (
+    <article>
+        <header>
+            <h4>{title}</h4>
+        </header>
+
+        {events.map((event: IEvent) => (
+            <EventItem data={event}></EventItem>
+        ))}
+    </article>
+)}

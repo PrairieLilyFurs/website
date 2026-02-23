@@ -1,0 +1,16 @@
+---
+const {data} = Astro.props;
+---
+<section>
+    <header>
+    <h5>{data.title}</h5>
+    <time datetime={data.date.toISOString()}>
+        {data.date.toLocaleString("en-CA", {
+        dateStyle: "long",
+        timeStyle: "short",
+        timeZone: "America/Regina",
+        })}
+    </time>
+    </header>
+    {data.description && <p>{data.description}</p>}
+</section>

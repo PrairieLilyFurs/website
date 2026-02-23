@@ -1,24 +1,50 @@
 ---
 import { getCollection } from "astro:content";
-import { processEvents } from "../lib/events";
+import { isToday, isBefore, isAfter, startOfDay, endOfDay } from 'date-fns'
+import collect, { Collection } from "collect.js";
+import EventGroup from "./EventGroup.astro";
 
-const events = processEvents(await getCollection("events"));
+export interface IEvent {
+  id: string,
+  title: string,
+  date: Date,
+  description?: string,
+  hasArticle: boolean,
+}
+
+const now = new Date()
+const eventsCollection = collect(await getCollection("events"))
+  .map((event): IEvent => {
+    const [exerpt, article] = (event.body ?? '')
+      .split('----')
+      .map(fragment => fragment.trim());
+
+    return {
+      id: event.id,
+      title: event.data.title,
+      date: new Date(event.data.date),
+      description: exerpt,
+      hasArticle: Boolean(article)
+    }
+  });
+  
+const current = eventsCollection
+  .filter(e => isToday(e.date))
+  .sortBy('date')
+  .all();
+
+const future = eventsCollection
+  .filter(e => isAfter(e.date, endOfDay(now)))
+  .sortBy('date')
+  .all();
+
+const past = eventsCollection
+  .filter(e => isBefore(e.date, startOfDay(now)))
+  .sortByDesc('date')
+  .take(5)
+  .all();
 ---
 
-{
-  events.map((event) => (
-    <section>
-      <header>
-        <h4>{event.title}</h4>
-        <time datetime={event.date.toISOString()}>
-          {event.date.toLocaleString("en-CA", {
-            dateStyle: "long",
-            timeStyle: "short",
-            timeZone: "America/Regina",
-          })}
-        </time>
-      </header>
-      {event.description && <p>{event.description}</p>}
-    </section>
-  ))
-}
+<EventGroup title="Current" events={current}></EventGroup>
+<EventGroup title="Future" events={future}></EventGroup>
+<EventGroup title="Past" events={past}></EventGroup>
