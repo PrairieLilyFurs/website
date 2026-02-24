@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const buildTime = import.meta.env.BUILD_TIME;
+const gitHash = import.meta.env.GIT_HASH;
 ---
 
 <html lang="en">
@@ -14,6 +16,8 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content="A quick overview of the Furry Community based out of Saskatchewan with overlap from surrounding areas." />
 		<meta name="generator" content={Astro.generator} />
+    <meta name="version" content={gitHash} />
+    <meta name="timestamp" content={buildTime} />
 		<title>{title}</title>
 	</head>
 	<body>
