@@ -9,6 +9,10 @@ on:
   push:
     branches: ["main"]
 
+  # Runs daily at 3 AM Saskatchewan time (UTC-6)
+  schedule:
+    - cron: 0 9 * * *
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
